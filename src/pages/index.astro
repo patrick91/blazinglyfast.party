@@ -88,11 +88,15 @@
   const imageWidth = 519 / 2;
   const imageHeight = 412 / 2;
 
-  document.onresize = () => {
+  const resize = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   };
-  document.onresize(null);
+
+  window.addEventListener("resize", resize);
+  resize();
 
   img.onload = () => {
     canvas.onclick = (event) => {
